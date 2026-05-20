@@ -345,10 +345,8 @@ function buildTop10() {
     row.innerHTML = `
       <span class="top10-rank ${rc}">${i+1}</span>
       <span class="top10-name">${item.name}</span>
-      
-      <div class="top10-bar-wrap">
-        <div class="top10-bar-fill" style="width:0%" data-w="${pct}"></div>
-      </div>
+      <span class="top10-year">${item.year}</span>
+     
       <span class="top10-votes">${item.votes} 票</span>
     `;
     container.appendChild(row);
