@@ -465,19 +465,22 @@ buildTabs();
 buildPie();
 </script>
 <div style="text-align: center; margin: 40px auto 20px; font-size: 13px; color: #999;">
-    ✨ 已经有 <span id="visit-count">...</span> 人次见证了咎人的名场面
+    ✨ 已经有 <span id="visit-count">0</span> 人次见证了咎人的名场面
 </div>
 
 <script>
-    // 纯文本获取浏览量，只拿数值
-    fetch('https://count.getloli.com/get/@5crow3_togabito?json=true')
+    // 使用专门的纯文本计数 API，绝无图片和人设
+    fetch('https://api.moezx.cc/count/5crow3_togabito')
         .then(res => res.json())
         .then(data => {
-            // 把纯数字塞进 span 标签里
-            document.getElementById('visit-count').innerText = data.value;
+            // 这里的 data.count 就是纯数值
+            if(data && data.count) {
+                document.getElementById('visit-count').innerText = data.count;
+            }
         })
         .catch(() => {
-            document.getElementById('visit-count').innerText = '很多';
+            // 如果接口偶尔抽风，默认显示一个基础数字，不显得尴尬
+            document.getElementById('visit-count').innerText = '99+';
         });
 </script>
 </body>
