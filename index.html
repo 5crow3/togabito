@@ -469,17 +469,14 @@ buildPie();
 </div>
 
 <script>
-    // 使用专门的纯文本计数 API，绝无图片和人设
     fetch('https://api.moezx.cc/count/5crow3_togabito')
         .then(res => res.json())
         .then(data => {
-            // 这里的 data.count 就是纯数值
             if(data && data.count) {
                 document.getElementById('visit-count').innerText = data.count;
             }
         })
         .catch(() => {
-            // 如果接口偶尔抽风，默认显示一个基础数字，不显得尴尬
             document.getElementById('visit-count').innerText = '99+';
         });
 </script>
