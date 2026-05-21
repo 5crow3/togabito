@@ -464,21 +464,5 @@ buildTop10();
 buildTabs();
 buildPie();
 </script>
-<div style="text-align: center; margin: 40px auto 20px; font-size: 13px; color: #999;">
-    ✨ 已经有 <span id="visit-count">0</span> 人次见证了咎人的名场面
-</div>
-
-<script>
-    fetch('https://api.moezx.cc/count/5crow3_togabito')
-        .then(res => res.json())
-        .then(data => {
-            if(data && data.count) {
-                document.getElementById('visit-count').innerText = data.count;
-            }
-        })
-        .catch(() => {
-            document.getElementById('visit-count').innerText = '99+';
-        });
-</script>
 </body>
 </html>
