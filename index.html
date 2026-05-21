@@ -464,6 +464,21 @@ buildTop10();
 buildTabs();
 buildPie();
 </script>
- <img src="https://count.getloli.com/get/@5crow3_togabito?theme=asoul" alt="counter" style="vertical-align: middle; display: inline-block;">
+<div style="text-align: center; margin: 40px auto 20px; font-size: 13px; color: #999;">
+    ✨ 已经有 <span id="visit-count">...</span> 人次见证了咎人的名场面
+</div>
+
+<script>
+    // 纯文本获取浏览量，只拿数值
+    fetch('https://count.getloli.com/get/@5crow3_togabito?json=true')
+        .then(res => res.json())
+        .then(data => {
+            // 把纯数字塞进 span 标签里
+            document.getElementById('visit-count').innerText = data.value;
+        })
+        .catch(() => {
+            document.getElementById('visit-count').innerText = '很多';
+        });
+</script>
 </body>
 </html>
